@@ -16,7 +16,7 @@
             "properties": {
                 "displayName": "Possible Brute Force Attempt",
                 "description": "This rule helps in identification of multiple logon failure activity on a host in a specified time interval.",
-                "severity": "Medium",
+                "severity": "High",
                 "enabled": true,
                 "query": "CustomWindowsEvents_CL_CL\r\n| where EventID == 4625\r\n| summarize FailedAttempts=count() by Account, DeviceName, bin(TimeGenerated, 5m)\r\n| where FailedAttempts >= 5",
                 "queryFrequency": "PT5M",
